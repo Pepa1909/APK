@@ -102,6 +102,10 @@ class Ui_MainWindow(object):
         #Open file
         data = self.openFile()
         
+        #If no file selected, return
+        if data is None:
+            return
+        
         #Clear canvas for new polygon layer
         self.Canvas.clearData()
         

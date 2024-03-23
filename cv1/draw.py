@@ -26,7 +26,7 @@ class Draw(QWidget):
         self.q.setX(x)
         self.q.setY(y)
         
-        # Change statuses of all polygons to 0 (not highlighted)
+        #Change statuses of all polygons to 0 (not highlighted)
         self.polyg_status = [0] * len(self.polyg_list)
         
         #Repaint screen
@@ -144,7 +144,7 @@ class Draw(QWidget):
         v3 = QPointF(px_max.x(), py_max.y())
         v4 = QPointF(px_min.x(), py_max.y())
         
-        #Create min_max box
+        #Create min-max box
         box = QPolygonF([v1,v2,v3,v4])
         
         return box
@@ -159,7 +159,6 @@ class Draw(QWidget):
         ymin = inf
         xmax = -inf
         ymax = -inf
-        
         
         #Iterate over all polygons
         for polyg in polygony:
@@ -182,6 +181,7 @@ class Draw(QWidget):
             for i in coords[0]:
                 p = QPointF(i[0],-i[1])
                 pol.append(p)
+                
                 #Find bounding points of polygon
                 xmin, ymin, xmax, ymax = self.findBoundingPoints(p, xmin, ymin, xmax, ymax)
             
@@ -193,7 +193,7 @@ class Draw(QWidget):
             mmb = self.minMaxBox(pol)
             self.mmb_list.append(mmb)
             
-        # Resize all polygons and min-max boxes according to the canvas size
+        #Resize all polygons and min-max boxes according to the canvas size
         self.resizePolygons(self.polyg_list, xmin, ymin, xmax, ymax)
         self.resizePolygons(self.mmb_list, xmin, ymin, xmax, ymax)
         self.repaint()

@@ -151,9 +151,9 @@ class Ui_MainWindow(object):
             self.Canvas.polyg_status[i] = result
         
         #Iterate over each polygon, that passed the min-max box test
-        for i, polyg in enumerate(polyg_list):
+        for i in range(len(polyg_list)):
             if self.Canvas.polyg_status[i] == 1 or self.Canvas.polyg_status[i] == -1:
-                res = Algorithms.rayCrossingAlgorithm(self, q, polyg)
+                res = Algorithms.rayCrossingAlgorithm(self, q, polyg_list[i])
                 self.Canvas.polyg_status[i] = res
 
         #Show results
@@ -193,9 +193,9 @@ class Ui_MainWindow(object):
             self.Canvas.polyg_status[i] = result
         
         #Iterate over each polygon, that passed the min-max box test    
-        for i, polyg in enumerate(polyg_list):
+        for i in range(len(polyg_list)):
             if self.Canvas.polyg_status[i] == 1 or self.Canvas.polyg_status[i] == -1:
-                res = Algorithms.windingNumberAlgorithm(self, q, polyg)
+                res = Algorithms.windingNumberAlgorithm(self, q, polyg_list[i])
                 self.Canvas.polyg_status[i] = res
         
         #Show results
